@@ -1,0 +1,22 @@
+# Python virtual environment & caches
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Data & trained model binaries (tracked separately or ignored if large)
+data/raw/
+data/processed/
+*.parquet
+*.pkl
+*.joblib
+
+# macOS system files
+.DS_Store
