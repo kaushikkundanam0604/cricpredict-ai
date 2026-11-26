@@ -1,0 +1,37 @@
+{
+  "features": [
+    "t1_win_rate_5",
+    "t1_win_rate_10",
+    "t2_win_rate_5",
+    "t2_win_rate_10",
+    "diff_win_rate_5",
+    "diff_win_rate_10",
+    "diff_avg_runs_for_10",
+    "diff_xi_bat_sr_10",
+    "diff_xi_bowl_econ_10",
+    "diff_xi_total_exp",
+    "t1_xi_bat_avg_10",
+    "t2_xi_bat_avg_10",
+    "venue_avg_1st_inn_runs",
+    "venue_chase_win_rate",
+    "t1_is_chasing",
+    "t1_venue_chase_edge",
+    "is_ilt20",
+    "is_bbl"
+  ],
+  "val": {
+    "accuracy": 0.6880733944954128,
+    "log_loss": 0.5954144912883648,
+    "brier_score": 0.2048741999327406
+  },
+  "test": {
+    "accuracy": 0.6748091603053435,
+    "log_loss": 0.5879118281332347,
+    "brier_score": 0.20302220516807157
+  },
+  "test_ilt20": {
+    "accuracy": 0.53125,
+    "log_loss": 0.6955983284229612,
+    "brier_score": 0.2514100748717728
+  }
+}
