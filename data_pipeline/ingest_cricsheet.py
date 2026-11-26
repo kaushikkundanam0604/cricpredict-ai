@@ -226,7 +226,7 @@ def run_ingestion() -> None:
                 all_matches.append(m_row)
                 all_deliveries.extend(d_rows)
                 all_players.extend(p_rows)
-            except Exception as exc:
+            except (json.JSONDecodeError, OSError, KeyError, TypeError) as exc:
                 error_count += 1
                 print(f"ERROR parsing {file_path}: {exc}")
 

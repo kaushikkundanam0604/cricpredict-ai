@@ -124,7 +124,7 @@ class LiveChaseSimulator:
             "monte_carlo_win_prob": round(mc_prob, 4),
             "current_run_rate": round(crr, 2),
             "required_run_rate": round(rrr, 2),
-            "projected_score_p10": int(round(p10)),
-            "projected_score_p50": int(round(p50)),
-            "projected_score_p90": int(round(p90)),
+            "projected_score_p10": round(p10),
+            "projected_score_p50": round(p50),
+            "projected_score_p90": round(p90),
         }
