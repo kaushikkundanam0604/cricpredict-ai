@@ -1,0 +1,23 @@
+{
+  "features": [
+    "bat_win_rate_10",
+    "bat_avg_runs_for_10",
+    "bat_xi_bat_sr_10",
+    "bat_xi_bat_avg_10",
+    "bat_xi_total_exp",
+    "bowl_win_rate_10",
+    "bowl_avg_runs_against_10",
+    "bowl_xi_bowl_econ_10",
+    "bowl_xi_bowl_wkts_10",
+    "bowl_xi_total_exp",
+    "venue_avg_1st_inn_runs",
+    "venue_chase_win_rate",
+    "is_ilt20",
+    "is_bbl"
+  ],
+  "score_mae": 31.31693562704967,
+  "score_rmse": 39.1659455382215,
+  "collapse_log_loss": 0.5225495770521436,
+  "collapse_brier": 0.16951856137771287,
+  "collapse_roc_auc": 0.4923276886512181
+}
