@@ -20,3 +20,6 @@ data/processed/
 
 # macOS system files
 .DS_Store
+# Frontend dependencies & build
+node_modules/
+frontend/dist/
