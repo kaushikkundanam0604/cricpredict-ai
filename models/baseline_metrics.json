@@ -1,0 +1,41 @@
+{
+  "best_model": "logistic_regression",
+  "features": [
+    "t1_win_rate_5",
+    "t1_win_rate_10",
+    "t2_win_rate_5",
+    "t2_win_rate_10",
+    "diff_win_rate_10",
+    "diff_avg_runs_for_10",
+    "t1_xi_bat_sr_10",
+    "t2_xi_bat_sr_10",
+    "diff_xi_bat_sr_10",
+    "t1_xi_bowl_econ_10",
+    "t2_xi_bowl_econ_10",
+    "diff_xi_bowl_econ_10",
+    "t1_xi_total_exp",
+    "t2_xi_total_exp",
+    "venue_avg_1st_inn_runs",
+    "venue_chase_win_rate",
+    "toss_winner_is_t1",
+    "toss_decision_field",
+    "is_ilt20",
+    "is_bbl"
+  ],
+  "test_logreg": {
+    "accuracy": 0.6641221374045801,
+    "precision": 0.662379421221865,
+    "recall": 0.6417445482866043,
+    "f1": 0.6518987341772152,
+    "log_loss": 0.5937670728823968,
+    "brier_score": 0.20596529850765238
+  },
+  "test_rf": {
+    "accuracy": 0.6763358778625954,
+    "precision": 0.6719242902208202,
+    "recall": 0.6635514018691588,
+    "f1": 0.6677115987460815,
+    "log_loss": 0.6005094191425132,
+    "brier_score": 0.20790285407377265
+  }
+}
