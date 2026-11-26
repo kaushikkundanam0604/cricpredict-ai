@@ -13,6 +13,7 @@ from backend.app.schemas import (
 from backend.app.services.live_simulator import LiveChaseSimulator
 from backend.app.services.predictor import PredictorService
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     app.state.predictor = PredictorService()
