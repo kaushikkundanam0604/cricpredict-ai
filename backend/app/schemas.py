@@ -30,3 +30,23 @@ class MatchPredictionResponse(BaseModel):
     positive_factors_t1: list[ShapFactor]
     negative_factors_t1: list[ShapFactor]
     uncertainty_notes: list[str]
+
+
+class LivePredictionRequest(BaseModel):
+    target: int = Field(..., ge=1, le=400, examples=[175])
+    current_score: int = Field(..., ge=0, le=400, examples=[112])
+    balls_bowled: int = Field(..., ge=0, le=120, examples=[84])
+    wickets_lost: int = Field(..., ge=0, le=10, examples=[3])
+    last_18_runs: int = Field(default=24, ge=0, le=108)
+    last_18_wkts: int = Field(default=1, ge=0, le=10)
+    competition: str = Field(default="ilt20")
+
+
+class LivePredictionResponse(BaseModel):
+    ml_chase_win_prob: float
+    monte_carlo_win_prob: float
+    current_run_rate: float
+    required_run_rate: float
+    projected_score_p10: int
+    projected_score_p50: int
+    projected_score_p90: int

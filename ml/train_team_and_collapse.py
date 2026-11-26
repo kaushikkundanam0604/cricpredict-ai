@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+
 import joblib
 import lightgbm as lgb
 import numpy as np
@@ -8,8 +9,8 @@ from sklearn.metrics import (
     brier_score_loss,
     log_loss,
     mean_absolute_error,
-    root_mean_squared_error,
     roc_auc_score,
+    root_mean_squared_error,
 )
 
 MATCH_FEATURES_PATH = Path("data/processed/match_features.parquet")

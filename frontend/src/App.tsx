@@ -1,3 +1,4 @@
+import LiveMatchCentre from "./components/LiveMatchCentre";
 import { useEffect, useState } from "react";
 import {
   BarChart,
@@ -62,7 +63,7 @@ interface RecentMatch {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<"predict" | "players" | "history">("predict");
+const [activeTab, setActiveTab] = useState<"predict" | "live" | "players" | "history">("predict");
   const [competition, setCompetition] = useState<string>("ilt20");
   const [teams, setTeams] = useState<string[]>([]);
   const [venues, setVenues] = useState<string[]>([]);
@@ -178,11 +179,12 @@ export default function App() {
           </div>
 
           <nav className="flex gap-2">
-            {[
-              { id: "predict", label: "Match Predictor", icon: Trophy },
-              { id: "players", label: "Player Projections", icon: Search },
-              { id: "history", label: "Matches & Metrics", icon: BarChart3 },
-            ].map(({ id, label, icon: Icon }) => (
+{[
+  { id: "predict", label: "Match Predictor", icon: Trophy },
+  { id: "live", label: "Live Match Centre", icon: Activity },
+  { id: "players", label: "Player Projections", icon: Search },
+  { id: "history", label: "Matches & Metrics", icon: BarChart3 },
+].map(({ id, label, icon: Icon }) => (
               <button
                 key={id}
                 onClick={() => setActiveTab(id as typeof activeTab)}
@@ -400,6 +402,7 @@ export default function App() {
           </div>
         )}
 
+        {activeTab === "live" && <LiveMatchCentre />}
         {activeTab === "players" && (
           <div className="space-y-6">
             <form onSubmit={handlePlayerSearch} className="flex gap-3">

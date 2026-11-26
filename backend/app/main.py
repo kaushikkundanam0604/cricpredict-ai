@@ -1,14 +1,22 @@
 from contextlib import asynccontextmanager
-from datetime import datetime, timezone
+from datetime import UTC, datetime
+
 from fastapi import FastAPI, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.schemas import MatchPredictionRequest, MatchPredictionResponse
-from backend.app.services.predictor import PredictorService
 
+from backend.app.schemas import (
+    LivePredictionRequest,
+    LivePredictionResponse,
+    MatchPredictionRequest,
+    MatchPredictionResponse,
+)
+from backend.app.services.live_simulator import LiveChaseSimulator
+from backend.app.services.predictor import PredictorService
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     app.state.predictor = PredictorService()
+    app.state.live_sim = LiveChaseSimulator()
     yield
 
 
@@ -35,7 +43,7 @@ def read_root() -> dict[str, str]:
 
 @app.get("/health")
 def health_check() -> dict[str, str]:
-    return {"status": "healthy", "timestamp_utc": datetime.now(timezone.utc).isoformat()}
+    return {"status": "healthy", "timestamp_utc": datetime.now(UTC).isoformat()}
 
 
 @app.get("/api/teams")
@@ -80,4 +88,16 @@ def predict_match(request: Request, payload: MatchPredictionRequest) -> dict:
         competition=payload.competition,
         toss_winner=payload.toss_winner,
         toss_decision=payload.toss_decision,
+    )
+
+@app.post("/api/predict/live", response_model=LivePredictionResponse)
+def predict_live(request: Request, payload: LivePredictionRequest) -> dict:
+    return request.app.state.live_sim.simulate_and_predict(
+        target=payload.target,
+        current_score=payload.current_score,
+        balls_bowled=payload.balls_bowled,
+        wickets_lost=payload.wickets_lost,
+        last_18_runs=payload.last_18_runs,
+        last_18_wkts=payload.last_18_wkts,
+        competition=payload.competition,
     )
