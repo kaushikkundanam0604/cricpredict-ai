@@ -1,0 +1,17 @@
+{
+  "features": [
+    "runs_remaining",
+    "balls_remaining",
+    "wickets_remaining",
+    "current_run_rate",
+    "required_run_rate",
+    "rrr_minus_crr",
+    "last_18_runs",
+    "last_18_wkts",
+    "is_ilt20",
+    "is_bbl"
+  ],
+  "test_acc": 0.8506589924533501,
+  "test_log_loss": 0.3243751955893713,
+  "test_brier": 0.10406369768332727
+}
